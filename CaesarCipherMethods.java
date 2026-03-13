@@ -13,7 +13,25 @@ public class CaesarCipherMethods {
 		
 		Scanner scan1 = new Scanner(System.in);
 		String choice = scan1.nextLine(); //obtain the user choice
+
+		try
+		{
+			if (choice.isBlank() == true)
+			{
+				throw new IllegalArgumentException();
+			}
 			
+			if (choice.compareTo("ENCRYPT") != 0 && choice.compareTo("DECRYPT") != 0)
+			{
+				throw new IllegalArgumentException();
+			}
+		}
+		
+		catch (Exception e)
+		{
+			System.out.println("You have to enter one of the two choices!");
+		}
+		
 		if (choice.compareTo("ENCRYPT") == 0) 
 		{
 			//run the makeCipher program
